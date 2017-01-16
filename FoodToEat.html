@@ -1,0 +1,51 @@
+
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body onload="f()">
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  
+	<div><a class="waves-effect waves-light btn" href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/index.html">首頁</a></div>
+	
+	<ul class="collection" id="x">
+    <script>
+	function f(){
+	var i;
+	var list=[	
+				{ "ig":"https://irs0.4sqi.net/img/general/600x600/4165301_59PVXQ3hKtJm51BBBVRMmU8-oCWuVmSGdTnEoPYm-1I.jpg" , "wb":"http://ch.therakyatpost.com/viral-news/117360" , "wbtg":"http://ch.therakyatpost.com/" , "tl":"柔佛Batu Pahat打死也要吃的十大美食！" , "ct":"Batu Pahat（峇株巴轄）簡稱峇株，是位於柔佛州的一座小城市..." , "tg":"人民郵報" , "lk":"http://ch.therakyatpost.com/viral-news/117360" },
+				{ "ig":"http://s4.gigacircle.com/media/s4_543b6b4c35df2.jpg" , "wb":"http://tw.gigacircle.com/2527790-1" , "wbtg":"http://tw.gigacircle.com/index.html" , "tl":"馬來西亞麻婆超讚10大美食推薦" , "ct":"麻坡（Muar），是馬來西亞位於柔佛州的城市..." , "tg":"GIGACIRCLE" , "lk":"http://tw.gigacircle.com/2527790-1" },
+				{ "ig":"http://www.themalaymailonline.com/uploads/articles/2016-11/yongpengpengtheme.JPG" , "wb":"http://www.themalaymailonline.com/chinese/eat-travel/article/20161117-11-best-local-food-in-yong-peng-johor" , "wbtg":"http://www.themalaymailonline.com/chinese" , "tl":"这才是真正的地道！柔佛永平11大必吃美食" , "ct":"你知道永平（Yong Peng）在哪里吗？这个坐落在柔佛中部的小城，里头主要为福州籍贯的华人，虽然看似不起眼，不过这个“小福州”却隐藏着许多平价且美味的地道美食..." , "tg":"中文網" , "lk":"http://www.themalaymailonline.com/chinese/eat-travel/article/20161117-11-best-local-food-in-yong-peng-johor" },
+				{ "ig":"http://www.discoverjb.com/wp-content/uploads/2016/08/13978376_10202111024014841_2040938825_o.jpg" , "wb":"https://www.johornow.com/must-eat-food-in-skudai-johor-bahru/" , "wbtg":"https://www.johornow.com/" , "tl":"口耳相传好滋味！皇后地区10大经典美食" , "ct":"T.U.T.A 皇后花园，一个以华人居多的地区。经过数十年的光景洗礼，这里的热闹程度始终不曾减退..." , "tg":"就在柔佛" , "lk":"http://www.discoverjb.com/food-and-drink/taman-ungku-tun-aminah/" },
+				{ "ig":"http://www.fishagrams.com/wp-content/uploads/2016/07/%E5%90%83%E5%9C%A8%E7%AC%A8%E7%8F%8D_Cover-01-01.jpg" , "wb":"http://www.fishagrams.com/2016/07/04/%E6%9F%94%E4%BD%9B%E7%AC%A8%E7%8F%8D%E8%80%81%E5%AD%97%E5%8F%B7%E7%BE%8E%E9%A3%9F/" , "wbtg":"http://www.fishagrams.com/" , "tl":"10個笨珍老字號美食" , "ct":"這是個夾在Batu Pahat和新山中間的小城市..." , "tg":"環球日記（FISHAGRAM）" , "lk":"http://www.fishagrams.com/2016/07/04/%E6%9F%94%E4%BD%9B%E7%AC%A8%E7%8F%8D%E8%80%81%E5%AD%97%E5%8F%B7%E7%BE%8E%E9%A3%9F/" },
+			];
+	
+	var str="";
+	for(i=0;i<list.length;i++)
+	{
+	str += '<li class="collection-item avatar">';
+	str += '<img src="' + list[i].ig + '" alt="" class="square" width="15%"><br>';
+	str += '<a href="' + list[i].wb + '"><span class="title">' + list[i].tl + '</span></a>';
+	str += '<p>' + list[i].ct + '</p>';
+	str += '<p>Tags:<a href="' + list[i].wbtg + '"> ' + list[i].tg + ' </a></p>';
+	str += '<a href="' + list[i].lk + '" class="secondary-content"><i class="material-icons">grade</i></a>'; 
+	str += '</li>' ;
+	}
+	document.getElementById("x").innerHTML = str ;
+	}
+	</script>
+	</ul>
+	  	  
+	  
+	  
+    </body>
+	
+
+  </html>

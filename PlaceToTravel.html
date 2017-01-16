@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  
+	  <title>柔佛旅遊景點</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>
+		  html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		  }
+		  #map {
+			height: 95%;
+		  }
+		</style>
+		
+	
+    </head>
+
+    <body>
+	 <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	
+	<div><a class="waves-effect waves-light btn" href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/index.html">首頁</a></div>
+      
+	  <div id="map"></div>
+		<script>
+		function initMap() {
+		  var center = {lat: 2.090598 , lng: 103.333663 };
+		  var kukup = {lat: 1.325934 , lng: 103.443633 };
+		  var legoland = {lat: 1.427158, lng: 103.629817 };
+		  var temple = {lat: 1.460721, lng: 103.763113};
+		  var palace = {lat: 1.455064, lng: 103.756364};
+		  var pulai = {lat:　1.601785, lng: 103.546111};
+		  var ledang = {lat: 2.407436, lng: 102.614514};
+		  var abubakar = {lat: 1.458342, lng: 103.751078};
+		  var piai = {lat: 1.270056, lng: 103.508747};
+		  var rawa = {lat: 2.520434, lng: 103.976024};
+		  var desaru = {lat: 1.545837, lng: 104.264282};
+		  
+		  // String
+		  var contentString = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">龜咯 Kukup</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "https://brushespapers.files.wordpress.com/2013/12/kukup22.jpg">'+
+			  '<p><b>龜咯</b>，位於柔佛笨珍縣。淳樸的漁村風氣是這裡成為一個特色景點。<p>'+
+			  '<p>在那裡可以吃到美味的海鮮、小吃，可以坐船出海看海魚養殖場，也可以到龜咯島上的紅樹林里走走<p>'+
+			  '<p>那裡也有許多的度假屋，絕對是個放鬆的好去處。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://www.johornow.com/kukup-travel-guide-what-to-do-eat-play-homestay-kukup-pontian-johor/">龜咯的介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/kukup.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';
+		  var contentString1 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">樂高園 LEGOLand</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "https://www.legoland.com.my/globalassets/explore-legoland/beginning/dsc_6347edited21.jpg?w=400&h=280&mode=crop&scale=both">'+
+			  '<p><b>樂高園</b>，位於位於柔佛州伊斯干達特區的樂高樂園，是繼丹麥、英國、德國、美國加州與佛羅里達州後，全世界第六座的樂高樂園。<p>'+
+			  '<p>佔地31公頃的園區分為七大區域，擁有著許多的遊樂設施供小孩和大人們玩。<p>'+
+			  '<p>喜歡樂高積木的大小朋友，絕對要去一次的啦！<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://www.legoland.com.my/zh-tw/">樂高園官網</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/lego.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';
+		  var contentString2 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">柔佛古廟 Johor Bahru Old Chinese Temple</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://s4.gigacircle.com/media/s4_5405e9273d37d.jpg">'+
+			  '<p><b>柔佛古廟</b>，柔佛新山最古老的建築之一，象徵著五個不同籍貫相互合作精神。<p>'+
+			  '<p>這五幫就是「潮州幫」，「福建幫」，「客家幫」，「廣東幫」和「海南幫」。<p>'+
+			  '<p>它是明末清初的建築物，蘊含了中華民族的優秀文化，像徵馬來西亞華裔祖先所帶來的建築風格。古廟也代表了華人到來本土的歷史見證，<p>'+
+			  '<p>是證明我們祖先在這裡開拓所留下汗血史料。</p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://zh.wikipedia.org/wiki/%E6%9F%94%E4%BD%9B%E5%8F%A4%E5%BA%99">柔佛古廟介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/temple.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';
+		  var contentString3 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">柔佛大皇宫 Istana Besar Johor</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://ext.pimg.tw/eliza0110/1383615235-1133391262.jpg">'+
+			  '<p><b>柔佛大皇宫</b>，又稱<b>蘇丹阿武峇卡皇宮</b>，現名<b>柔佛皇家博物館</b>。<p>'+
+			  '<p>王宮坐落在柔佛海峽邊的敦伊士邁醫生路 (Jalan Tun Dr. Ismail)，面向柔佛海峽，與新加坡隔岸相望，<p>'+
+			  '<p>是柔佛皇朝時期蘇丹的九個皇宮之一。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="http://blog.okgojb.com/2013/10/istana-besar.html">柔佛大皇宫介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/palace.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';
+		  var contentString4 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">蒲來山 Gunung Pulai</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://www.travelledpaths.com/wp-content/uploads/2015/03/WP_20150304_10_49_54_Pro.jpg">'+
+			  '<p><b>蒲來山</b>，是馬來西亞爬山客愛到的地方。山路都已近鋪成泊油路，所以很好走。<p>'+
+			  '<p>蒲來山腳有一座瀑布，很多人都喜歡到那裡去溪水，同時，瀑布邊也有野餐區，<p>'+
+			  '<p>至於山上的風景則是一級棒的，可以讓你體會到俯視遠處城市的感覺。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="http://venmilam.blogspot.tw/2014/05/gunung-pulai.html">糊塗魚的蒲來山心得（蒲來山沒介紹網站）</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/pulai.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';	  
+		  var contentString5 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">金山 Gunung Ledang</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "https://i.ytimg.com/vi/ekXEV3AOOEE/maxresdefault.jpg">'+
+			  '<p><b>金山</b>，位於火山Ledang國家公園東甲區 ， 柔佛 。本次峰會位於邊界之間的麻坡及馬六甲。<p>'+
+			  '<p>在1276米（4186英尺）站立，有明顯的線索通往高峰，山間愛好者的熱門目的地登山者。<p>'+
+			  '<p> 奧菲爾山也是馬來西亞第64高的山，可以說是我國最攀登的山。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://translate.google.com.tw/translate?hl=zh-TW&sl=en&u=https://en.wikipedia.org/wiki/Mount_Ophir&prev=search">金山介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/ledang.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';	  
+		  var contentString6 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">蘇丹阿布巴卡清真寺 Masjid Jamek Sultan Abu Bakar</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "https://lh3.googleusercontent.com/proxy/weOBK-wjaPAUjyINpPVJpFdFuWKpCz_lCDu2nZDx7W09n-rU58T10FnnsFFf20DNbiYIOxVmLcqdFp4jBTeT7xLLQlBA8IdTy2rP5P5tyzc9MVyiMhj7-hoCM8MR5XBfc28HYNu2XVgq9KVCcwjxMK2WopJHPQ=w408-h271">'+
+			  '<p><b>蘇丹阿布巴卡清真寺</b>，柔佛州的州立清真寺，位於馬來西亞柔佛州首府新山，與新加坡隔柔佛海峽相望。<p>'+
+			  '<p>清真寺是紀念「柔佛現代化之父」、蘇丹易卜拉欣的父親蘇丹阿布·巴卡。始建於1892年，1900年完工，屬維多利亞式風格。<p>'+
+			  '<p>可容納2,000名會眾聚禮。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://zh.wikipedia.org/wiki/%E8%98%87%E4%B8%B9%E9%98%BF%E5%B8%83%E5%B7%B4%E5%8D%A1%E6%B8%85%E7%9C%9F%E5%AF%BA">蘇丹阿布巴卡清真寺介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/abubakar.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';	  
+		  var contentString7 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">丹绒比亚 Tanjung Piai</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://guide.7zhou.com/uploads/201012/129129676421W72R9b.jpg">'+
+			  '<p><b>丹绒比亚</b>，位在馬來西亞，同時也是亞洲大陸最南端的地區，距離新山市中心約90公里。丹絨一詞在馬來語中就是海角的意思。<p>'+
+			  '<p>這裡有馬來西亞保護的最好的紅樹林，整個林區被規劃為保護區。<p>'+
+			  '<p>在這裡有一塊碑石，標註著這裡是亞洲大陸的最南端，凡是到訪的遊客都能獲得一張證書作為紀念。這裡設有一條200米長的碼頭，可以讓您觀賞四周優美的紅樹林景觀。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="http://blog.okgojb.com/2013/10/blog-post_4415.html">丹绒比亚心得</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/piai.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';
+		  var contentString8 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">拉哇島 Pulau Rawa</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://4.bp.blogspot.com/-KZzJYTQEJK0/VCyRkj_6QXI/AAAAAAAARD4/PVL-00Ui2H4/s1600/IMAG2560.jpg">'+
+			  '<p><b>拉哇島</b>，可以说是一个世外桃源、一个与世无争、一个一辈子不去一定会后悔的岛屿 <p>'+
+			  '<p>它是一个私人岛屿 (听起来好酷的样子 XD 要来到这里必须在丰盛港码头 Mersing Jetty乘搭快艇。Pulau Rawa距离丰盛港也才16km，大约20-30分钟就会到达）<p>'+
+			  '<p>人烟稀少，你不用害怕要和别人争先恐后，害怕海滩上有着许多的人围绕着你。喜欢追求宁静的你、想要隔离世界的你、想要带另一半浪漫旅行的你，Pulau Rawa确实是一个不错的游玩地点。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="http://www.sini.com.my/business/lgmtravelDetailview/1000005282">拉哇島介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/rawa.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';	
+		  var contentString9 = '<div id="content">'+
+			  '<div id="siteNotice">'+
+			  '</div>'+
+			  '<h1 id="firstHeading" class="firstHeading">迪沙鲁 Desaru Beach</h1>'+
+			  '<div id="bodyContent">'+
+			  '<img width="50%" src = "http://www.amitravel.my/wp-content/uploads/3180227438_983331494a_b-815x545.jpg">'+
+			  '<p><b>迪沙鲁</b>，在海灘度假區哥打丁宜區 ， 柔佛 ， 馬來西亞 。 它位於東約88公里柔佛州新山 ，在中國南海 。<p>'+
+			  '<p>這是居民的一種非常流行的週末度假勝地新加坡誰前來享受海灘和燦爛的高爾夫球場的吸引力25公里舒展。 該迪沙魯高爾夫鄉村俱樂部是這裡的受歡迎建立。<p>'+
+			  '<p>臨近這個海灘是一個鎮， 班達爾Penawar ，在此有各種馬來西亞寄宿學校包括的Sekolah Menengah理科哥打丁宜，賽寇拉Sukan班達爾Penawar和的Sekolah Kebangsaan Menengah班阿含Penawar。<p>'+
+			  '<p><br><p>'+
+			  '<a target="blank" href="https://translate.google.com.tw/translate?hl=zh-TW&sl=en&u=https://en.wikipedia.org/wiki/Desaru&prev=search">迪沙鲁介紹</a>'+
+			  '<p><a href="file:///C:/Users/Soh%20Jun%20Xiang/Desktop/materialize/streetview/desaru.html">StreetView</a></p>'+
+			  '</div>'+
+			  '</div>';		
+		  
+		  var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 9,
+			center: center
+		  });
+		  
+		  var marker = new google.maps.Marker({
+			position: kukup,
+			map: map,
+			title: '龜咯 Kukup',
+		  });
+		  var marker1 = new google.maps.Marker({
+			position: legoland,
+			map: map,
+			title: '樂高園 LEGOLand'
+		  });
+		  var marker2 = new google.maps.Marker({
+			position: temple,
+			map: map,
+			title: '柔佛古廟 Johor Bahru Old Chinese Temple'
+		  });
+		  var marker3 = new google.maps.Marker({
+			position: palace,
+			map: map,
+			title: '柔佛大皇宫 Istana Besar Johor'
+		  });
+		  var marker4 = new google.maps.Marker({
+			position: pulai,
+			map: map,
+			title: '蒲來山 Gunung Pulai'
+		  });
+		  var marker5 = new google.maps.Marker({
+			position: ledang,
+			map: map,
+			title: '金山 Gunung Ledang'
+		  });
+		  var marker6 = new google.maps.Marker({
+			position: abubakar,
+			map: map,
+			title: '蘇丹阿布巴卡清真寺 Masjid Jamek Sultan Abu Bakar'
+		  });
+		  var marker7 = new google.maps.Marker({
+			position: piai,
+			map: map,
+			title: '丹绒比亚 Tanjung Piai'
+		  });
+		  var marker8 = new google.maps.Marker({
+			position: rawa,
+			map: map,
+			title: '拉哇島 Pulau Rawa'
+		  });
+		  var marker9 = new google.maps.Marker({
+			position: desaru,
+			map: map,
+			title: '迪沙鲁 Desaru Beach'
+		  });
+		  
+		  var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		  });
+		  var infowindow1 = new google.maps.InfoWindow({
+			content: contentString1
+		  });
+		  var infowindow2 = new google.maps.InfoWindow({
+			content: contentString2
+		  });
+		  var infowindow3 = new google.maps.InfoWindow({
+			content: contentString3
+		  });
+		  var infowindow4 = new google.maps.InfoWindow({
+			content: contentString4
+		  });
+		  var infowindow5 = new google.maps.InfoWindow({
+			content: contentString5
+		  });
+		  var infowindow6 = new google.maps.InfoWindow({
+			content: contentString6
+		  });
+		  var infowindow7 = new google.maps.InfoWindow({
+			content: contentString7
+		  });
+		  var infowindow8 = new google.maps.InfoWindow({
+			content: contentString8
+		  });
+		  var infowindow9 = new google.maps.InfoWindow({
+			content: contentString9
+		  });
+
+		  marker.addListener('click', function() {
+			infowindow.open(map, marker);
+		  });
+		  marker1.addListener('click', function() {
+			infowindow1.open(map, marker1);
+		  });
+		  marker2.addListener('click', function() {
+			infowindow2.open(map, marker2);
+		  });
+		  marker3.addListener('click', function() {
+			infowindow3.open(map, marker3);
+		  });
+		  marker4.addListener('click', function() {
+			infowindow4.open(map, marker4);
+		  });
+		  marker5.addListener('click', function() {
+			infowindow5.open(map, marker5);
+		  });
+		  marker6.addListener('click', function() {
+			infowindow6.open(map, marker6);
+		  });
+		  marker7.addListener('click', function() {
+			infowindow7.open(map, marker7);
+		  });
+		  marker8.addListener('click', function() {
+			infowindow8.open(map, marker8);
+		  });
+		  marker9.addListener('click', function() {
+			infowindow9.open(map, marker9);
+		  });
+		  
+		}
+		
+
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"
+			async defer></script>
+    </body>
+  </html>
+  
+  
